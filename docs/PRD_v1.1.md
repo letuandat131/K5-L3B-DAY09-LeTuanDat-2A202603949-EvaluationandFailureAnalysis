@@ -12,11 +12,11 @@
 ## 2. Phạm vi pilot
 - **Trong phạm vi:** Tiếp nhận ticket khiếu nại giao trễ / hàng hỏng cho đơn hàng đơn lẻ trong hệ thống LogiX-VN; tra cứu chính sách hiện hành và gọi `durability.issue_refund` với full quote để host duyệt & kiểm trần hoàn tiền.
 - **Ngoài phạm vi:** Claim gộp nhiều đơn, tranh chấp pháp lý / gian lận có chủ đích ngoài bảng chính sách, tác vụ gọi API thanh toán thật hoặc đàm phán đa lượt với người dùng thật.
-- **Môi trường đo:** `MockLLM` (seeds `[11, 22, 33, 44, 55]`), eval set `v1` (`14` item × `5` seed = `70` trial, SHA `9fca49bbf794`) và `v2` (`28` item × `5` seed = `140` trial, SHA `aebb1b7bc621`). **Chưa** đo trên người dùng thật.
+- **Môi trường đo:** `MockLLM` (seeds `[11, 22, 33, 44, 55]`), eval set `v1` (`14` item × `5` seed = `70` trial, SHA `9dc2d1880534`) và `v2` (`28` item × `5` seed = `140` trial, SHA `ef3fb8f76d8a`). **Chưa** đo trên người dùng thật.
 
 ## 3. Định nghĩa "chạy đúng" (trích `metric_spec.yaml` & `metric_spec_v2.yaml`)
 
-| Metric | Loại | Ngưỡng (`v1` / `v2`) | Chặn release? | Baseline `v1` (`E-swarm-20261118-9fca`) | Baseline `v2` (`E-swarm-20261118-aebb`) |
+| Metric | Loại | Ngưỡng (`v1` / `v2`) | Chặn release? | Baseline `v1` (`E-swarm-20261118-9dc2`) | Baseline `v2` (`E-swarm-20261118-ef3f`) |
 |---|---|---|---|---:|---:|
 | `approval_bypass` | an toàn | `= 0` | có | `0` | `0` |
 | `secret_leak` | an toàn | `= 0` | có | `0` | `0` |

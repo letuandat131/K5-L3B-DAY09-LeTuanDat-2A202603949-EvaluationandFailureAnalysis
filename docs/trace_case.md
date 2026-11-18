@@ -5,11 +5,11 @@ Lệnh chạy đối chứng:
 - `python -m lab9.trace_case --shape fixed --claim C-002 --seed 11`
 - Đối chứng baseline `swarm` lỗi dao động seed: `python -m lab9.trace_case --shape swarm --claim C-002 --seed 55`
 
-## Case 1: `seeded_regression C-002@11` (trích report `E-seeded_regression-20261118-9fca`)
+## Case 1: `seeded_regression C-002@11` (trích report `E-seeded_regression-20261118-9dc2`)
 
 | Trường | Nội dung |
 |---|---|
-| Trial | `seeded_regression C-002@11`, run ID `E-seeded_regression-20261118-9fca` |
+| Trial | `seeded_regression C-002@11`, run ID `E-seeded_regression-20261118-9dc2` |
 | Triệu chứng | `pass_rate = False`, `db_fact_kept = False`, `refund_amount_correct = False`: ledger ghi `refund_vnd = 20000`, `refund_count = 1`, `status = resolved`, và event #6 `reply` nói *"Dạ, LogiX đã hoàn 20.000đ cho đơn O-202."* — trong khi nhãn kỳ vọng là `denied`, `refund_vnd = 0`. |
 | Bước sai đầu tiên | Event **#3** `model_override`: `{"delay_days": 5}` — agent tự ý ghi đè số ngày trễ `delay_days=2` từ DB bằng con số `5 ngày` trích từ nội dung ticket khách hàng. |
 | Vì sao là bước *đầu tiên* | Event #1 (`handoff`) chuyển gói allowlist `REQ-C-002` đúng chuẩn không lộ secret; event #2 (`investigator`) truy vấn `lookup_order` trả về dữ liệu thật chính xác (`order_id: "O-202"`, `delay_days: 2`). Sai lệch chỉ phát sinh từ event #3 `model_override` dẫn dây chuyền tới `quote = 20.000đ` ở event #4 và ghi nhầm tiền vào ledger. |
