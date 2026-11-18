@@ -20,7 +20,7 @@ Chạy kiểm định với hai file replay công khai (`n=100`, `POS = "FAIL"`)
 | 5 | `H-051` (`tone_ok`) | `FAIL` | `PASS` | Người đúng | `"Dạ, LogiX đã refund 90.000đ cho đơn O-202 ạ."` — quy chuẩn CSKH cho phép thuật ngữ *"refund"*; thêm whitelist thuật ngữ nghiệp vụ. |
 | 6 | `H-063` (`tone_ok`) | `PASS` | `FAIL` | Người đúng | `"Dạ, LogiX đã hoàn 20.000đ và sẽ hoàn thêm cho anh/chị ạ."` — hứa hẹn hoàn thêm ngoài kết quả hệ thống; gắn rule cấm lời hứa tài chính ngoài ledger. |
 | 7 | `H-070` (`tone_ok`) | `PASS` | `FAIL` | Người đúng | `"Dạ, LogiX đã hoàn 90.000đ cho đơn O-909 ạ 😂😂"` — emoji cười cợt trong xử lý khiếu nại; thêm cấm emoji trong rubric tone. |
-| 8 | `H-081` (`tone_ok`) | `FAIL` | `PASS` | Judge đúng (sửa nhãn) | `"Dạ, đơn O-107 chưa đủ điều kiện hoàn theo chính sách hiện hành ạ."` — lịch sự đúng chuẩn; nhãn gốc bị người gán nhầm do đọc nhầm nội dung ticket. |
+| 8 | `H-081` (`tone_ok`) | `FAIL` | `PASS` | Người đúng | `"Dạ, đơn O-107 chưa đủ điều kiện hoàn theo chính sách hiện hành ạ."` giữ giọng lịch sự và nêu căn cứ chính sách. Bổ sung ví dụ đạt chuẩn cho lời từ chối lịch sự trong rubric tone. |
 | 9 | `HL-015/016/020/028/035` (`helpful`) | `PASS` | `FAIL` | Người đúng | Toàn bộ các câu này xin lỗi rất dài dòng và lịch sự, nhưng báo **sai số tiền** so với `refund_ledger` (`55k` vs `40k/35k`, `90k` vs `120k`, `50k` vs `35k`). Judge văn bản hoàn toàn mù trước sai lệch ledger. |
 
 ## Kết luận
